@@ -24,3 +24,22 @@ body {
   font-size: 24px;
   margin-bottom: 10px;
 }
+
+.gameButton {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50; /* colore di sfondo verde */
+  color: white; /* testo bianco */
+  font-size: 16px;
+  border-radius: 4px; /* bordi arrotondati */
+  cursor: pointer; /* puntatore a mano al passaggio del mouse */
+  transition: background-color 0.3s, transform 0.2s; /* transizione animata per l'hover e il click */
+}
+
+.gameButton:hover {
+  background-color: #45a049; /* colore di sfondo un po' più scuro all'hover */
+}
+
+.gameButton:active {
+  transform: scale(0.95); /* restringe leggermente il pulsante quando viene premuto */
+}

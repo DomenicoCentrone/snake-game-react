@@ -28,13 +28,22 @@ function SnakeGame() {
         setApple(newApple);
         setScore(prevScore => {
           const newScore = prevScore + 1;
-          if (newScore % 5 === 0) spawnBonus(); // Check if we should spawn a bonus
+          if (newScore % 5 === 0) spawnBonus();
+          if (newScore % 3 === 0 && intervalTime > 50) { // Verifica che il punteggio sia un multiplo di 3 e che intervalTime sia maggiore di un valore minimo (per evitare che vada troppo veloce)
+              setIntervalTime(prevInterval => prevInterval - 10); // diminuisce l'intervallo di 10ms
+          }
           return newScore;
         });
       } else if (bonus && head.x === bonus.x && head.y === bonus.y) {
         setBonus(null);  // remove the bonus from the screen
         newSnake.push({}, {});  // add +2 length
-        setScore(prevScore => prevScore + 5);  // add +5 score
+        setScore(prevScore => {
+          const newBonusScore = prevScore + 5;
+          if (newBonusScore % 3 === 0 && intervalTime > 50) {
+              setIntervalTime(prevInterval => prevInterval - 10);
+          }
+          return newBonusScore;
+      });
       } else {
         newSnake.pop();
       }

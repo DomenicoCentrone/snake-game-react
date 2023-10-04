@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="game-container">
-      {!gameStarted && <button onClick={() => setGameStarted(true)}>Start</button>}
+      {!gameStarted && <button className='gameButton' onClick={() => setGameStarted(true)}>Start</button>}
       {gameStarted && <SnakeGame />}
     </div>
   );
