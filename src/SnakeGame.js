@@ -10,6 +10,7 @@ function SnakeGame() {
     const [score, setScore] = useState(0);
     const [intervalTime, setIntervalTime] = useState(200);
     const [bonus, setBonus] = useState(null);
+
   
     const spawnBonus = () => {
       const newBonus = { x: Math.floor(Math.random() * gridSize), y: Math.floor(Math.random() * gridSize) };
