@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="game-container">
-      {!gameStarted && <button className='gameButton' onClick={() => setGameStarted(true)}>Start</button>}
+      {!gameStarted && <div style={{textAlign: 'center'}}><h1>Snake Game React</h1><button className='gameButton' onClick={() => setGameStarted(true)}>Start</button></div>}
       {gameStarted && <SnakeGame />}
     </div>
   );

@@ -91,8 +91,24 @@ function SnakeGame() {
     return () => window.removeEventListener('keydown', handleKey);
   }, [dir]);
 
+  const resetGame = () => {
+    setSnake([{ x: 2, y: 2 }]);
+    setApple({ x: 5, y: 5 });
+    setDir({ x: 1, y: 0 });
+    setGameOver(false);
+    setScore(0);
+    setIntervalTime(200);
+    setBonus(null);
+  };
 
-  if (gameOver) return <div>Game Over!</div>;
+    if (gameOver) {
+      return (
+          <div style={{textAlign: 'center'}}>
+              <h2>Game Over!</h2><br />
+              <button className='gameButton' onClick={resetGame}>Ricomincia</button>
+          </div>
+      );
+  }
 
   return (
     <div>
